@@ -11,6 +11,9 @@ function getValueAtObject(obj, key) {
     console.error('해당 정보가 존재하지 않습니다!!!!!!!');
   }
 }
+
+// 출력 예상
+
 console.log(getValueAtObject(person, 'name')); // Sungwoo
 console.log(getValueAtObject(person, 'age')); // 25
 console.log(getValueAtObject(person, 'city')); // Daejeon
@@ -25,6 +28,8 @@ function getNumberAtArray(arr, index) {
     console.error('해당 값은 존재하지 않습니다!!!!!!!!!!!!!!!!');
   }
 }
+
+// 출력 예상
 
 console.log(getNumberAtArray(numbers, 2)); // 30
 console.log(getNumberAtArray(numbers, 4)); // 50
