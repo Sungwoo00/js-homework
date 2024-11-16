@@ -41,10 +41,10 @@ function handleLogin(e) {
     if (idInput.value === user.id && pwInput.value === user.pw) {
       window.location.href = './welcome.html'
     } else {
-      alert('아이디 또는 비밀번호를 잘못 입력했습니다.')
+      alert('아이디 또는 비밀번호를 잘못 입력하셨습니다.')
     }
   } else {
-    alert('이메일과 비밀번호 형식을 확인해주세요.')
+    alert('이메일 또는 비밀번호 형식을 확인해주세요.')
   }
 }
 
