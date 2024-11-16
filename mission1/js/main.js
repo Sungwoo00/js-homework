@@ -26,14 +26,12 @@ function pwReg(text) {
 
 function handleIdValid(e) {
   isEmailValid = emailReg(e.target.value);
-  idError.style.display = isEmailValid ? 'none' : 'block';
-  e.target.classList.toggle('is--invalid', !isEmailValid);
+  isEmailValid ? e.target.classList.remove('is--invalid') : e.target.classList.add('is--invalid');
 }
 
 function handlePwValid(e) {
   isPwValid = pwReg(e.target.value);
-  pwError.style.display = isPwValid ? 'none' : 'block';
-  e.target.classList.toggle('is--invalid', !isPwValid);
+  isPwValid ? e.target.classList.remove('is--invalid') : e.target.classList.add('is--invalid');
 }
 
 function handleLogin(e) {
