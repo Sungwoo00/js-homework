@@ -1,4 +1,77 @@
 import { data } from './data.js';
+import { getNode, getNodes, css } from '../lib/dom/index.js';
+
+// nav.addEventListener('click', function (e) {
+//   e.preventDefault();
+
+//   const target = e.target.closest('li');
+//   if (!target) return;
+
+//   const index = target.dataset.index;
+//   console.log(index);
+
+//   const activeItems = getNodes('.is-active');
+//   activeItems.forEach((item) => item.classList.remove('is-active'));
+
+//   target.classList.add('is-active');
+
+//   const imgElement = getNode('.visual img');
+//   const poster = data[index - 1];
+
+//   imgElement.src = `./assets/${poster.name.toLowerCase()}.jpeg`;
+//   imgElement.alt = poster.alt;
+//   // imgElement.color = poster.color
+//   css(document.body, 'background', `linear-gradient(to bottom, ${poster.color[0]}, ${poster.color[1]})`);
+// });
+
+const nav = getNode('.nav');
+let currentAudio;
+
+function handleActiveStatus(target) {
+  const isActive = getNodes('.is-active');
+  isActive.forEach((item) => item.classList.remove('is-active'));
+  target.classList.add('is-active');
+}
+
+function updateImage(elemental) {
+  const imgElement = getNode('.visual img');
+  imgElement.src = `./assets/${elemental.name.toLowerCase()}.jpeg`;
+  imgElement.alt = elemental.alt;
+}
+
+function updateBackground(elemental) {
+  css(document.body, 'background', `linear-gradient(to bottom, ${elemental.color[0]}, ${elemental.color[1]})`);
+}
+
+function stopAllAudio() {
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+  }
+}
+
+function playAudio(elemental) {
+  stopAllAudio();
+  currentAudio = new Audio(`./assets/audio/${elemental.name.toLowerCase()}.m4a`);
+  currentAudio.play();
+}
+
+function handleNavClick(e) {
+  e.preventDefault;
+
+  const target = e.target.closest('li');
+  if (!target) return;
+
+  const index = target.dataset.index;
+  const elemental = data[index - 1];
+
+  handleActiveStatus(target);
+  updateImage(elemental);
+  updateBackground(elemental);
+  playAudio(elemental);
+}
+
+nav.addEventListener('click', handleNavClick);
 
 /* 
 
