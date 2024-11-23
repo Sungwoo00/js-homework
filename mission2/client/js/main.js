@@ -11,19 +11,22 @@ function handleActiveStatus(target) {
   target.classList.add('is-active');
 }
 
-async function updateImage(elemental) {
+async function setImage(elemental) {
   const imgElement = getNode('.visual img');
-  const nickNmae = getNode('.nickName');
-  console.log(nickNmae);
   imgElement.src = `./assets/${elemental.name.toLowerCase()}.jpeg`;
-  nickNmae.textContent = elemental.name;
   imgElement.alt = elemental.alt;
 
   fadeUpImage(imgElement);
 }
 
-function updateBackground(elemental) {
-  css(document.body, 'background', `linear-gradient(to bottom, ${elemental.color[0]}, ${elemental.color[1]})`);
+function setNameText(elemental) {
+  const nameElement = getNode('.nickName');
+  nameElement.textContent = elemental.name;
+}
+
+function setBgColor(elemental) {
+  const colorB = elemental.color[1] || '#000';
+  css(document.body, 'background', `linear-gradient(to bottom, ${elemental.color[0]}, ${colorB})`);
 }
 
 function stopAllAudio() {
@@ -49,8 +52,9 @@ function handleNavClick(e) {
   const elemental = data[index - 1];
 
   handleActiveStatus(target);
-  updateImage(elemental);
-  updateBackground(elemental);
+  setBgColor(elemental);
+  setImage(elemental);
+  setNameText(elemental);
   playAudio(elemental);
 }
 
