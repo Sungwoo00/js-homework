@@ -13,10 +13,15 @@ function handleActiveStatus(target) {
 
 async function setImage(elemental) {
   const imgElement = getNode('.visual img');
-  imgElement.src = `./assets/${elemental.name.toLowerCase()}.jpeg`;
-  imgElement.alt = elemental.alt;
 
-  fadeUpImage(imgElement);
+  try {
+    imgElement.src = `./assets/${elemental.name.toLowerCase()}.jpeg`;
+    imgElement.alt = elemental.alt;
+
+    fadeUpImage(imgElement);
+  } catch (error) {
+    console.error('이미지를 가져오지 못 했습니다! 오류 사유:', error);
+  }
 }
 
 function setNameText(elemental) {
