@@ -34,7 +34,7 @@ function playAudio(elemental) {
 }
 
 function handleNavClick(e) {
-  e.preventDefault;
+  e.preventDefault();
 
   const target = e.target.closest('li');
   if (!target) return;
