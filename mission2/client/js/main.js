@@ -1,5 +1,5 @@
 import { data } from './data.js';
-import { fadeOutImage } from '../lib/animation/index.js';
+import { fadeUpImage } from '../lib/animation/index.js';
 import { getNode, getNodes, css } from '../lib/dom/index.js';
 
 const nav = getNode('.nav');
@@ -13,10 +13,13 @@ function handleActiveStatus(target) {
 
 async function updateImage(elemental) {
   const imgElement = getNode('.visual img');
+  const nickNmae = getNode('.nickName');
+  console.log(nickNmae);
   imgElement.src = `./assets/${elemental.name.toLowerCase()}.jpeg`;
+  nickNmae.textContent = elemental.name;
   imgElement.alt = elemental.alt;
 
-  fadeOutImage(imgElement);
+  fadeUpImage(imgElement);
 }
 
 function updateBackground(elemental) {
