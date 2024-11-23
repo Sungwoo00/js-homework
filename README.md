@@ -4,3 +4,4 @@
 
 * [Mission0 과제 확인하러 가기](https://github.com/Sungwoo00/js-homework/tree/main/mission0)
 * [Mission1 과제 확인하러 가기](https://github.com/Sungwoo00/js-homework/tree/main/mission1)
+* [Mission2 과제 확인하러 가기](https://github.com/Sungwoo00/js-homework/tree/main/mission2)
