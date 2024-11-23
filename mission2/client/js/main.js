@@ -1,29 +1,6 @@
 import { data } from './data.js';
 import { getNode, getNodes, css } from '../lib/dom/index.js';
 
-// nav.addEventListener('click', function (e) {
-//   e.preventDefault();
-
-//   const target = e.target.closest('li');
-//   if (!target) return;
-
-//   const index = target.dataset.index;
-//   console.log(index);
-
-//   const activeItems = getNodes('.is-active');
-//   activeItems.forEach((item) => item.classList.remove('is-active'));
-
-//   target.classList.add('is-active');
-
-//   const imgElement = getNode('.visual img');
-//   const poster = data[index - 1];
-
-//   imgElement.src = `./assets/${poster.name.toLowerCase()}.jpeg`;
-//   imgElement.alt = poster.alt;
-//   // imgElement.color = poster.color
-//   css(document.body, 'background', `linear-gradient(to bottom, ${poster.color[0]}, ${poster.color[1]})`);
-// });
-
 const nav = getNode('.nav');
 let currentAudio;
 
