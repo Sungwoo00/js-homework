@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.swiper {
+  width: 240px;
+  height: 320px;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.swiper-slide:nth-child(1n) {
+  background-color: dodgerblue;
+}
+/* .swiper-slide:nth-child(2n) {
+  background-color: rgb(0, 140, 255);
+}
+.swiper-slide:nth-child(3n) {
+  background-color: rgb(10, 184, 111);
+}
+.swiper-slide:nth-child(4n) {
+  background-color: rgb(211, 122, 7);
+}
+.swiper-slide:nth-child(5n) {
+  background-color: rgb(118, 163, 12);
+} */
+
+.control-button {
+  padding: 12px 24px;
+  font-size: 18px;
+  color: white;
+  background: #333;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.control-button:hover {
+  background: #555;
+}
