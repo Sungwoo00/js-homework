@@ -1,6 +1,6 @@
 body {
   display: flex;
-  background-image: url('../../assets/swiper/jujubBg.png');
+  background-image: url('../src/assets/jujubBg.png');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -42,7 +42,7 @@ body {
       font-size: 22px;
       font-weight: bold;
       transition: all 0.3s ease;
-      background-image: url('../../assets/swiper/jujubCardBg.jpg');
+      background-image: url('../src/assets/jujubCardBg.jpg');
       background-repeat: no-repeat;
       border-radius: 1rem;
       transform-origin: center;
@@ -83,7 +83,7 @@ body {
   z-index: 1000;
 
   .modal-content {
-    background-image: url('../../assets/swiper/jypBg.jpeg');
+    background-image: url('../src/assets/jypBg.jpeg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
