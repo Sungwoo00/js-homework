@@ -8,10 +8,11 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 80vh;
 }
+
 .swiper-container {
-  position: relative;
+  margin-top: 20%;
   width: 100%;
   height: 100%;
   display: flex;
@@ -20,7 +21,7 @@ body {
 
   .swiper {
     width: 100vw;
-    height: 320px;
+    height: 50vh;
     margin: 0 auto;
     overflow: visible;
 
@@ -29,8 +30,10 @@ body {
     }
 
     .swiper-slide {
-      width: 200px;
-      height: 70%;
+      max-width: 330px;
+      width: 100%;
+      height: 50%;
+      aspect-ratio: 7/12;
       border-radius: 18px;
       display: flex;
       align-items: center;
@@ -39,10 +42,11 @@ body {
       font-size: 22px;
       font-weight: bold;
       transition: all 0.3s ease;
-      background-image: url(../../assets/swiper/jujubCardBg.jpg);
+      background-image: url('../../assets/swiper/jujubCardBg.jpg');
       background-repeat: no-repeat;
       border-radius: 1rem;
       transform-origin: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0.2, 0.2);
 
       &.swiper-slide-active {
         transform: scale(1.2);
@@ -51,18 +55,95 @@ body {
   }
 
   .control-button {
-    margin-top: 40px;
-    padding: 12px 24px;
+    padding: 20px 40px;
     font-size: 18px;
     color: white;
-    background: #333;
+    background: #fd4e4e;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s;
 
     &:hover {
-      background: #555;
+      background: #da1010;
     }
   }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  .modal-content {
+    background-image: url('../../assets/swiper/jypBg.jpeg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 10rem;
+    border-radius: 1rem;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    animation: modalFadeUp 1.8s ease;
+
+    .close-button {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #333;
+
+      &:hover {
+        color: #000;
+      }
+    }
+
+    .modal-body {
+      white-space: pre-line;
+      margin-top: 1rem;
+      font-size: 1.5rem;
+      color: #000000;
+      font-weight: 700;
+      text-align: center;
+    }
+  }
+}
+
+@keyframes modalFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-closing {
+  animation: modalFadeDown 0.2s ease forwards;
+}
+
+@keyframes modalFadeDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+.swiper-stopped .swiper-slide:not(.selected) {
+  opacity: 0.5;
+  filter: blur(2px);
 }

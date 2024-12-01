@@ -5,12 +5,28 @@ export class Card {
 
   render() {
     return `
-      <div class="swiper-slide" role="group" aria-label="${this.content}">
-        <div class="card" data-flipped="false">
-          <div class="card-front">
-          </div>
-          <div class="card-back">
-            <p>${this.content}</p>
+      <div class="swiper-slide" >
+        <div class="card" data-content="${this.content}">  
+
+        </div>
+      </div>
+    `;
+  }
+}
+
+export class Modal {
+  constructor(content) {
+    this.content = content;
+  }
+
+  render() {
+    return `
+      <div class="modal" id="cardModal">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <div class="modal-img"></div>
+          <div class="modal-body">
+            ${this.content}...
           </div>
         </div>
       </div>

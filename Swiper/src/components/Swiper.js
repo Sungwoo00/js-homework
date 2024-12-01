@@ -1,4 +1,4 @@
-import { CardCollection } from './Cards.js';
+import { CardCollection, Modal } from './Cards.js';
 
 export class SwiperComponent {
   constructor(data) {
@@ -23,9 +23,19 @@ export class SwiperComponent {
         delay: 1,
         disableOnInteraction: false,
       },
-      speed: 500,
+      speed: 200,
       loop: true,
-      slidesPerView: 5,
+      slidesPerView: 7,
+      breakpoints: {
+        480: {
+          slidesPerView: 5,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 7,
+          spaceBetween: 20,
+        },
+      },
       centeredSlides: true,
       spaceBetween: 30,
       watchSlidesProgress: true,
@@ -63,14 +73,26 @@ export class SwiperComponent {
       document.querySelector('.swiper').classList.add('swiper-stopped');
 
       const activeSlide = this.swiper.slides[this.swiper.activeIndex];
-      activeSlide.classList.add('flipped');
+      activeSlide.classList.add('selected');
+
+      const content = activeSlide.querySelector('.card').dataset.content;
+      const modal = new Modal(content);
+      document.body.insertAdjacentHTML('beforeend', modal.render());
+
+      const closeButton = document.querySelector('.close-button');
+      closeButton.addEventListener('click', () => {
+        document.getElementById('cardModal').remove();
+      });
     } else {
       this.swiper.autoplay.start();
       document.querySelector('.toggleButton').textContent = 'Stop';
       document.querySelector('.swiper').classList.remove('swiper-stopped');
 
-      document.querySelectorAll('.swiper-slide.flipped').forEach((card) => {
-        card.classList.remove('flipped');
+      const modal = document.getElementById('cardModal');
+      if (modal) modal.remove();
+
+      document.querySelectorAll('.swiper-slide.selected').forEach((card) => {
+        card.classList.remove('selected');
       });
     }
     this.isPlaying = !this.isPlaying;
